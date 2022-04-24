@@ -23,13 +23,14 @@ type Response struct {
 func buildHttpResponse() *bytes.Buffer {
 	version := "HTTP/1.1"
 	statusCode := "200"
+	phrase := "OK"
 	header := make(map[string]string, 4)
 	header["Date"] = "Wed, 13 Apr 2022 10:41:11 GMT"
 	header["Connection"] = "close"
 	header["Content-Length"] = helloWorldLen
 	header["Content-Type"] = "application/json;charset=UTF-8"
 	body := helloWorld
-	resp := buildResponse(version, statusCode, "", header, body)
+	resp := buildResponse(version, statusCode, phrase, header, body)
 	return resp.BuildToBuffer()
 }
 
